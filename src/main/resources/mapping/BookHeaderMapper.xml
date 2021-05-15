@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.book.mapper.BookHeaderMapper">
+
+    <select id="findById"   resultType="BookHeader">
+        select  *  from  bookheader  where id=#{id}
+    </select>
+
+    <select id="findAll"   resultType="BookHeader">
+        select  *  from  bookheader
+    </select>
+
+    <update id="updateAllById" parameterType="BookHeader" >
+        update bookheader set  bookname=#{bookname},author=#{author},pages=#{pages},price=#{price},publish=#{publish},nums=#{nums},titlekey=#{titlekey} where id = #{id}
+    </update>
+
+    <insert id="saveAll" parameterType="BookHeader" >
+        insert into bookheader (bookname,author,pages,price,publish,nums,titlekey) values(#{bookname},#{author},#{pages},#{price},#{publish},#{nums},#{titlekey})
+    </insert>
+
+    <select id="findAllById"   resultType="BookHeader">
+        select  *  from  bookheader  where id=#{id}
+    </select>
+
+    <delete id="deleteAllById" parameterType="BookHeader" >
+        delete  from  bookheader  where id=#{id}
+    </delete>
+
+    <update id="setHeaderSrc" parameterType="BookHeader">
+        update bookheader set imgsrc = #{imgsrc} where id = #{id}
+    </update>
+
+</mapper>

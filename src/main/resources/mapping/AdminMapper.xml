@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.book.mapper.AdminMapper">
+
+
+    <insert id="saveAll" parameterType="Admin" >
+        insert into admin (admin,password) values(#{admin},#{password})
+    </insert>
+
+    <select id="findAll"   resultType="Admin">
+        select  *  from  admin
+    </select>
+
+    <select id="findById"   resultType="Admin">
+        select  *  from  admin  where id=#{id}
+    </select>
+
+    <delete id="deleteAllById" parameterType="Admin" >
+        delete  from  admin  where id=#{id}
+    </delete>
+
+    <update id="updateAllById" parameterType="Admin" >
+        update admin set  admin=#{admin},password=#{password} where id=#{id}
+    </update>
+
+
+    <update id="setAdminAvatar" parameterType="Admin">
+        update admin set adminavatar = #{adminavatar} where id = #{id}
+    </update>
+
+    <select id="findAllByUsername" resultType="Admin">
+        select  *  from  admin  where admin=#{admin}
+    </select>
+
+
+    <select id="findPasswordByUsername" parameterType="String" resultType="String">
+        select password from admin where admin=#{admin}
+    </select>
+
+    <select id="findPassword"  resultType="Admin">
+        select password from admin where admin=#{admin}
+    </select>
+
+</mapper>

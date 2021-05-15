@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.book.mapper.CartMapper">
+
+
+
+    <select id="findAll"   resultType="Cart">
+        select  *  from  cart
+    </select>
+
+    <select id="findById"   resultType="Cart">
+        select  *  from  cart  where id=#{id}
+    </select>
+
+    <select id="findByuserId"   resultType="Cart">
+        select  *  from  cart  where userid=#{userid}
+    </select>
+
+    <insert id="saveAll" parameterType="Cart" >
+        insert into cart (bookname,author,publish,price,num,imgsrc) values(#{bookname},#{author},#{publish},#{price},#{num},#{imgsrc})
+    </insert>
+
+    <delete id="deleteAllById" parameterType="Cart" >
+        delete  from  cart  where userid=#{userid}
+    </delete>
+
+
+
+
+</mapper>

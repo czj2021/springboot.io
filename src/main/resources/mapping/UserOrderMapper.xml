@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.book.mapper.UserOrderMapper">
+
+
+
+    <select id="findAll"   resultType="UserOrder">
+        select  *  from  userorder
+    </select>
+
+    <select id="findById"   resultType="UserOrder">
+        select  *  from  userorder  where id=#{id}
+    </select>
+
+    <select id="findByuserId"   resultType="UserOrder">
+        select  *  from  userorder  where userid=#{userid}
+    </select>
+
+    <insert id="saveAll" parameterType="UserOrder" >
+        insert into userorder (bookname,num,price,userid) values(#{bookname},#{num},#{price},#{userid},#{imgsrc})
+    </insert>
+
+    <delete id="deleteAllById" parameterType="UserOrder" >
+        delete  from  userorder  where userid=#{userid}
+    </delete>
+
+    <delete id="deleteById" parameterType="UserOrder" >
+        delete  from  userorder  where id=#{id}
+    </delete>
+
+    <insert id="saveAllList" parameterType="UserOrder" >
+        insert into userorder (bookname,num,price,userid,imgsrc) values(#{bookname},#{num},#{price},#{userid},#{imgsrc})
+    </insert>
+
+    <update id="updateAddressById" parameterType="UserOrder" >
+        update userorder set  address=#{address},name=#{name},phone=#{phone},ordertime=#{ordertime} where userid = #{userid}
+    </update>
+
+    <update id="updateOrderStateById" parameterType="UserOrder" >
+        update userorder set  orderstate=#{orderstate} where id = #{id}
+    </update>
+
+
+
+
+</mapper>

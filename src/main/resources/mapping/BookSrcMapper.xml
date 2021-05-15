@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.book.mapper.BookSrcMapper">
+
+    <select id="findById"   resultType="BookSrc">
+        select  *  from  booksrc  where id=#{id}
+    </select>
+
+    <select id="findByBookname"   resultType="BookSrc">
+        select  *  from  booksrc  where bookname=#{bookname}
+    </select>
+
+    <select id="findAll"   resultType="BookSrc">
+        select  *  from  booksrc
+    </select>
+
+    <select id="findOrderByNums"   resultType="BookSrc">
+        select  *  from  booksrc order by nums
+    </select>
+
+    <select id="findOrderByDesc"   resultType="BookSrc">
+        select  *  from  booksrc order by nums desc
+    </select>
+
+    <update id="updateAllById" parameterType="BookSrc" >
+        update booksrc set  bookname=#{bookname},author=#{author},pages=#{pages},price=#{price},publish=#{publish},titlekey=#{titlekey},nums=#{nums} where id = #{id}
+    </update>
+
+    <insert id="saveAll" parameterType="BookSrc" >
+        insert into booksrc (bookname,author,pages,price,publish,titlekey,nums) values(#{bookname},#{author},#{pages},#{price},#{publish},#{titlekey},#{nums})
+    </insert>
+
+    <update id="setImgSrc" parameterType="BookSrc">
+        update booksrc set imgsrc = #{imgsrc} where id = #{id}
+    </update>
+
+    <delete id="deleteAllById" parameterType="BookSrc" >
+        delete  from  booksrc  where id=#{id}   
+    </delete>
+
+    <select id="findAllByPage" parameterType="ListInfo" resultType="BookSrc">
+        select * from booksrc order by ${prop} ${order} limit #{start},#{pageSize}
+    </select>
+
+    <select id="findAllByKeyword" parameterType="String" resultType="BookSrc">
+        select * from booksrc where bookname like concat('%',#{keyword},'%')
+    </select>
+
+    <select id="findAllByTitleKey" parameterType="String" resultType="BookSrc">
+        select * from booksrc where titlekey like concat('%',#{keyword},'%')
+    </select>
+
+</mapper>
