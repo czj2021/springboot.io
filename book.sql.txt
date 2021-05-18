@@ -1,0 +1,305 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : localhost_3306
+ Source Server Type    : MySQL
+ Source Server Version : 80020
+ Source Host           : localhost:3306
+ Source Schema         : book
+
+ Target Server Type    : MySQL
+ Target Server Version : 80020
+ File Encoding         : 65001
+
+ Date: 18/05/2021 19:11:28
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for address
+-- ----------------------------
+DROP TABLE IF EXISTS `address`;
+CREATE TABLE `address`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `address` varchar(64) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `phone` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `userid` int(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 53 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of address
+-- ----------------------------
+INSERT INTO `address` VALUES (2, '小虎', '上海市普陀区金沙江路 1518 弄', '2222', NULL);
+INSERT INTO `address` VALUES (3, '小二', '上海市普陀区金沙江路 1518 弄', '3333333', 104);
+INSERT INTO `address` VALUES (15, 'dsad', 'sadsad', 'sa', 104);
+INSERT INTO `address` VALUES (39, 'dsa', 'dsada', '21321321', 78);
+INSERT INTO `address` VALUES (40, 'dsa', 'dsad', '342432432432', 78);
+INSERT INTO `address` VALUES (45, 'sda', 'dsa', '11111111111', 111);
+INSERT INTO `address` VALUES (46, 'Chen ZJ', '软件学院', '17350756083', 137);
+INSERT INTO `address` VALUES (47, '陈智杰', '软件学院', '17350756083', 137);
+INSERT INTO `address` VALUES (48, 'Chen ZJ', '软件学院', '17350756083', 142);
+INSERT INTO `address` VALUES (50, 'sadsa', 'dsada', '22222222222', 157);
+INSERT INTO `address` VALUES (52, 'dssd', 'dsds', '21211111111', 180);
+INSERT INTO `address` VALUES (53, 'aaa', 'aaa', '12312312311', 185);
+
+-- ----------------------------
+-- Table structure for admin
+-- ----------------------------
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `admin` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `password` varchar(64) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `adminavatar` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of admin
+-- ----------------------------
+INSERT INTO `admin` VALUES (5, 'vvv', '4786f3282f04de5b5c7317c490c6d922', 'http://localhost:8181/image/adminavatar/bbc8f31ccf294a5eb6caeabcf253d022.jpg');
+INSERT INTO `admin` VALUES (10, 'fff', '343d9040a671c45832ee5381860e2996', 'http://localhost:8181/image/adminavatar/8ef6d4900a794355b5f46ad1bd1ff2e1.jpg');
+INSERT INTO `admin` VALUES (11, 'sss', 'e9a10ed878c26db3233293357112a846', 'http://localhost:8181/image/adminavatar/ce4d086cc59c4c56b2bf9b8df4f31a0d.jpg');
+INSERT INTO `admin` VALUES (16, 'dsa', '5f039b4ef0058a1d652f13d612375a5b', NULL);
+INSERT INTO `admin` VALUES (21, 'dsa', 'c4ca4238a0b923820dcc509a6f75849b', NULL);
+INSERT INTO `admin` VALUES (22, 'admin', '21232f297a57a5a743894a0e4a801fc3', NULL);
+INSERT INTO `admin` VALUES (24, 'aaa', 'aaa', NULL);
+
+-- ----------------------------
+-- Table structure for bookheader
+-- ----------------------------
+DROP TABLE IF EXISTS `bookheader`;
+CREATE TABLE `bookheader`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `imgsrc` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `bookname` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `price` float(10, 2) NULL DEFAULT NULL,
+  `author` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `publish` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `pages` int(0) NULL DEFAULT NULL,
+  `nums` int(0) NULL DEFAULT NULL,
+  `titlekey` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 48 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of bookheader
+-- ----------------------------
+INSERT INTO `bookheader` VALUES (26, 'http://localhost:8181/image/imgsrc/f8a9b19cd1c44b75b92557f314536f10.jpg', '马拉多纳自传：我的世界杯', 39.14, '[阿根廷] 迭戈·马拉多纳 著，吴寒 译', ' 译林出版社', 220, 10, '文学');
+INSERT INTO `bookheader` VALUES (27, 'http://localhost:8181/image/imgsrc/719277b6a16e4b7dba8ed4593e74be84.jpg', '轻狂', 42.85, '巫哲 著', ' 百花文艺出版社', 160, 2, '小说');
+INSERT INTO `bookheader` VALUES (28, 'http://localhost:8181/image/imgsrc/46cc481d8352437baafcf78b906234c6.jpg', '东野圭吾·沉默的巡游', 59.06, '[日] 东野圭吾 著，边大玉 译', ' 南海出版公司', 400, 3, '小说');
+INSERT INTO `bookheader` VALUES (35, 'http://localhost:8181/image/imgsrc/2b4372e22c8c4a38ae60712e20397244.jpg', '教导：伍登教练是怎样带队伍的', 52.12, '[美] 约翰·伍登（John Wooden） 著，杨斌 译', '清华大学出版社', 364, 11, '管理');
+INSERT INTO `bookheader` VALUES (37, 'http://localhost:8181/image/imgsrc/bb39f39bce65450bb3bb4030688eaece.jpg', '茶道 : 从喝茶到懂茶', 49.92, '蓝戈 著', '吉林美 术出版社', 16, 32, '生活');
+INSERT INTO `bookheader` VALUES (41, 'http://localhost:8181/image/imgsrc/c3090689f6d1447083768d254564461f.jpg', '解读中国经济', 37.40, '林毅夫 著', '北京大学出版社', 390, 65, '经济');
+INSERT INTO `bookheader` VALUES (42, 'http://localhost:8181/image/imgsrc/e682dbf455894c4197682fa980f6e5da.jpg', '中华人民共和国电子商务法消费者权益保护法律制度', 41.10, '吴景明 编', '中国法制', 160, 12, '法律');
+INSERT INTO `bookheader` VALUES (43, 'http://localhost:8181/image/imgsrc/819c6fd3f72847d0a08e5c3f925fc620.jpg', '世界国家地理地图', 358.00, '《世界国家地理地图》编委会 编', '中国大百科全书出版社', 325, 21, '科普');
+INSERT INTO `bookheader` VALUES (44, 'http://localhost:8181/image/imgsrc/44451b25029b46df8c5e605ac45a8825.jpg', '富兰克林传', 41.60, '[美] 沃尔特·艾萨克森 著，孙豫宁 译', '中信出版社 ', 608, 33, '传记');
+
+-- ----------------------------
+-- Table structure for booksrc
+-- ----------------------------
+DROP TABLE IF EXISTS `booksrc`;
+CREATE TABLE `booksrc`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `imgsrc` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `bookname` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `price` float(10, 2) NULL DEFAULT NULL,
+  `author` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `publish` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `pages` int(0) NULL DEFAULT NULL,
+  `nums` int(0) NULL DEFAULT NULL,
+  `titlekey` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 47 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of booksrc
+-- ----------------------------
+INSERT INTO `booksrc` VALUES (26, 'http://localhost:8181/image/imgsrc/f8a9b19cd1c44b75b92557f314536f10.jpg', '马拉多纳自传：我的世界杯', 39.14, '[阿根廷] 迭戈·马拉多纳 著，吴寒 译', ' 译林出版社', 220, 10, '文学');
+INSERT INTO `booksrc` VALUES (27, 'http://localhost:8181/image/imgsrc/719277b6a16e4b7dba8ed4593e74be84.jpg', '轻狂', 42.85, '巫哲 著', ' 百花文艺出版社', 159, 2, '小说');
+INSERT INTO `booksrc` VALUES (28, 'http://localhost:8181/image/imgsrc/46cc481d8352437baafcf78b906234c6.jpg', '东野圭吾·沉默的巡游', 59.06, '[日] 东野圭吾 著，边大玉 译', ' 南海出版公司', 400, 3, '小说');
+INSERT INTO `booksrc` VALUES (29, 'http://localhost:8181/image/imgsrc/c010f1353c2549e0b1ccffde20e77939.jpg', '成法', 38.02, '[日] 稻盛和夫 著述 著，稻盛资料馆 编', ' 浙江人民出版社', 296, 40, '文学');
+INSERT INTO `booksrc` VALUES (30, 'http://localhost:8181/image/imgsrc/b35e981b67b1441da8c287fe6e1f5b3c.jpg', '心战 深度解析围棋顶尖棋手的巅峰对决', 71.20, '胡耀宇 著', '中信出版集团股份有限公司,中信出版社ISB', 493, 15, '文学');
+INSERT INTO `booksrc` VALUES (31, 'http://localhost:8181/image/imgsrc/148c9f9710f145bfa74583bb642f96ea.jpg', '右派国家 大选揭秘 美国未来走向何方', 56.56, '[英] 约翰·米克尔思韦特，[英] 阿德里安•伍尔德里奇 著', '中信出版社', 384, 6, '文学');
+INSERT INTO `booksrc` VALUES (32, 'http://localhost:8181/image/imgsrc/276bb0e6e0f948e78d370a5c67527fd6.jpg', '价值：我对投资的思考 ', 71.21, '张磊 著', '浙江教育出版社', 475, 27, '文学');
+INSERT INTO `booksrc` VALUES (33, 'http://localhost:8181/image/imgsrc/918c3f382fd646a1ad6e9566e4473936.jpg', '分析与思考—黄奇帆的复旦经济课', 62.56, '黄奇帆 著', ' 上海人民出版社', 162, 8, '文学');
+INSERT INTO `booksrc` VALUES (35, 'http://localhost:8181/image/imgsrc/2b4372e22c8c4a38ae60712e20397244.jpg', '教导：伍登教练是怎样带队伍的', 52.12, '[美] 约翰·伍登（John Wooden） 著，杨斌 译', '清华大学出版社', 364, 11, '管理');
+INSERT INTO `booksrc` VALUES (36, 'http://localhost:8181/image/imgsrc/cee6cabaecbd45048a2028ed7cd880be.jpg', '原则 如何创造出完美独特的自己 [Principles]', 60.05, '瑞·达利欧 著，刘波，綦相 译', '中信出版集团', 576, 56, '管理');
+INSERT INTO `booksrc` VALUES (37, 'http://localhost:8181/image/imgsrc/bb39f39bce65450bb3bb4030688eaece.jpg', '茶道 : 从喝茶到懂茶', 49.92, '蓝戈 著', '吉林美 术出版社', 16, 32, '生活');
+INSERT INTO `booksrc` VALUES (38, 'http://localhost:8181/image/imgsrc/b4a094bd942e41cf99640077f45be956.jpg', '精致形象管理：时尚穿搭大全', 52.30, '徐萌 著', '中国铁道出版社', 268, 65, '生活');
+INSERT INTO `booksrc` VALUES (39, 'http://localhost:8181/image/imgsrc/a181956a1ad849bf96b180bca9d140d1.jpg', '感动世界的文字：英语小故事大全集 基础篇', 27.60, '创想外语研发团队 著', '中国纺织出版社', 300, 45, '教育');
+INSERT INTO `booksrc` VALUES (40, 'http://localhost:8181/image/imgsrc/6e54efb5ccc3461ab83e5dc609221539.jpg', '一看就停不下来的中国史1+2+世界史', 157.90, '最爱君，宫崎正胜 著', '台海出版社、四川人民出版社', 1072, 45, '历史');
+INSERT INTO `booksrc` VALUES (41, 'http://localhost:8181/image/imgsrc/c3090689f6d1447083768d254564461f.jpg', '解读中国经济', 37.40, '林毅夫 著', '北京大学出版社', 390, 65, '经济');
+INSERT INTO `booksrc` VALUES (42, 'http://localhost:8181/image/imgsrc/e682dbf455894c4197682fa980f6e5da.jpg', '中华人民共和国电子商务法消费者权益保护法律制度', 41.10, '吴景明 编', '中国法制', 160, 12, '法律');
+INSERT INTO `booksrc` VALUES (43, 'http://localhost:8181/image/imgsrc/819c6fd3f72847d0a08e5c3f925fc620.jpg', '世界国家地理地图', 358.00, '《世界国家地理地图》编委会 编', '中国大百科全书出版社', 325, 21, '科普');
+INSERT INTO `booksrc` VALUES (44, 'http://localhost:8181/image/imgsrc/44451b25029b46df8c5e605ac45a8825.jpg', '富兰克林传', 41.60, '[美] 沃尔特·艾萨克森 著，孙豫宁 译', '中信出版社 ', 608, 33, '传记');
+INSERT INTO `booksrc` VALUES (47, 'http://localhost:8181/image/imgsrc/75b54aeb6fe244b8a36db567ddc127b7.jpg', 'aaa', 12.00, 'aaa', 'aaa', 12, 11, 'aaa');
+
+-- ----------------------------
+-- Table structure for cart
+-- ----------------------------
+DROP TABLE IF EXISTS `cart`;
+CREATE TABLE `cart`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `imgsrc` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `bookname` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `num` int(0) NULL DEFAULT NULL,
+  `price` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `userid` int(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 306 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of cart
+-- ----------------------------
+INSERT INTO `cart` VALUES (145, NULL, '这是第一个书名', 2, '3', 103);
+INSERT INTO `cart` VALUES (146, NULL, '这是第二个书名', 4, '2', 103);
+INSERT INTO `cart` VALUES (147, NULL, '这是第三个书名', 4, '3', 103);
+INSERT INTO `cart` VALUES (148, NULL, '这是第二个书名', 4, '2', 103);
+INSERT INTO `cart` VALUES (149, NULL, '这是第一个书名', 5, '3', 103);
+INSERT INTO `cart` VALUES (150, NULL, '这是第三个书名', 4, '3', 103);
+INSERT INTO `cart` VALUES (267, 'http://localhost:8181/image/imgsrc/f8a9b19cd1c44b75b92557f314536f10.jpg', '马拉多纳自传：我的世界杯', 1, '39.14', 78);
+INSERT INTO `cart` VALUES (268, 'http://localhost:8181/image/imgsrc/f8a9b19cd1c44b75b92557f314536f10.jpg', '马拉多纳自传：我的世界杯', 1, '39.14', 78);
+INSERT INTO `cart` VALUES (269, 'http://localhost:8181/image/imgsrc/f8a9b19cd1c44b75b92557f314536f10.jpg', '马拉多纳自传：我的世界杯', 1, '39.14', 78);
+INSERT INTO `cart` VALUES (270, 'http://localhost:8181/image/imgsrc/f8a9b19cd1c44b75b92557f314536f10.jpg', '马拉多纳自传：我的世界杯', 1, '39.14', 78);
+INSERT INTO `cart` VALUES (276, 'http://localhost:8181/image/imgsrc/f8a9b19cd1c44b75b92557f314536f10.jpg', '马拉多纳自传：我的世界杯', 1, '39.14', 137);
+INSERT INTO `cart` VALUES (277, 'http://localhost:8181/image/imgsrc/719277b6a16e4b7dba8ed4593e74be84.jpg', '轻狂', 1, '42.85', 111);
+
+-- ----------------------------
+-- Table structure for classify
+-- ----------------------------
+DROP TABLE IF EXISTS `classify`;
+CREATE TABLE `classify`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `titlekey` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of classify
+-- ----------------------------
+INSERT INTO `classify` VALUES (10, '文学');
+INSERT INTO `classify` VALUES (15, '小说');
+INSERT INTO `classify` VALUES (17, '管理');
+INSERT INTO `classify` VALUES (18, '生活');
+INSERT INTO `classify` VALUES (19, '教育');
+INSERT INTO `classify` VALUES (20, '历史');
+INSERT INTO `classify` VALUES (21, '法律');
+INSERT INTO `classify` VALUES (22, '传记');
+
+-- ----------------------------
+-- Table structure for losrc
+-- ----------------------------
+DROP TABLE IF EXISTS `losrc`;
+CREATE TABLE `losrc`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `logoimg` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of losrc
+-- ----------------------------
+INSERT INTO `losrc` VALUES (1, 'http://localhost:8181/image/logoimg/c3d5be0a36d44246b3cc811c47615edd.jpg');
+INSERT INTO `losrc` VALUES (2, 'http://localhost:8181/image/logoimg/659392f53ae04b90b9e5c550f689ad92.jpg');
+INSERT INTO `losrc` VALUES (3, 'http://localhost:8181/image/logoimg/ee6bf6f9bab1447d8b2bd2dd3aed730d.jpg');
+INSERT INTO `losrc` VALUES (4, 'http://localhost:8181/image/logoimg/9432f57979c048c9aff7a4b6890b22e4.jpg');
+INSERT INTO `losrc` VALUES (6, 'http://localhost:8181/image/logoimg/a842be17d0324f81b50d6ffb4f65797c.jpg');
+INSERT INTO `losrc` VALUES (8, 'http://localhost:8181/image/logoimg/7a203a2d1a34451d8f7d75ca254e2409.jpg');
+INSERT INTO `losrc` VALUES (9, 'http://localhost:8181/image/logoimg/ff1f370691214a8b9f947a1169c719fe.jpg');
+INSERT INTO `losrc` VALUES (18, 'http://localhost:8181/image/logoimg/d0099cbd71574ddfbbed5d1033d4c745.jpg');
+
+-- ----------------------------
+-- Table structure for orderform
+-- ----------------------------
+DROP TABLE IF EXISTS `orderform`;
+CREATE TABLE `orderform`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `imgsrc` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `bookname` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `num` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `price` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `userid` int(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 484 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of orderform
+-- ----------------------------
+INSERT INTO `orderform` VALUES (421, 'http://localhost:8181/image/imgsrc/f8a9b19cd1c44b75b92557f314536f10.jpg', '马拉多纳自传：我的世界杯', '1', '39.14', 78);
+INSERT INTO `orderform` VALUES (422, 'http://localhost:8181/image/imgsrc/f8a9b19cd1c44b75b92557f314536f10.jpg', '马拉多纳自传：我的世界杯', '1', '39.14', 78);
+INSERT INTO `orderform` VALUES (442, 'http://localhost:8181/image/imgsrc/719277b6a16e4b7dba8ed4593e74be84.jpg', '轻狂', '1', '42.85', 111);
+INSERT INTO `orderform` VALUES (443, 'http://localhost:8181/image/imgsrc/f8a9b19cd1c44b75b92557f314536f10.jpg', '马拉多纳自传：我的世界杯', '1', '39.14', 137);
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `password` varchar(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `avatar` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `sex` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `birthday` date NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 186 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES (180, 'root002', '264bc9b224b5b5ee3b3eb29f1598ab3d', '11111111111', 'http://localhost:8181/image/avatar/25ee747d4e4f45839d1a6695bc5b6994.jpg', '男', '2021-01-05');
+INSERT INTO `user` VALUES (181, 'root003', '171dde10d26031daeea0c761e919f647', '12222222222', 'http://localhost:8181/image/avatar/1dd920b96b09433da0ac10d93431f033.jpg', '男', '2021-01-25');
+INSERT INTO `user` VALUES (185, 'text', '1cb251ec0d568de6a929b520c4aed8d1', '17350756082', 'http://localhost:8181/image/avatar/1cbf7d134fa94f559fc6ca5000100dff.jpg', '男', '2021-01-18');
+INSERT INTO `user` VALUES (186, 'aaa', 'aaa', '11111111111', NULL, NULL, NULL);
+
+-- ----------------------------
+-- Table structure for userorder
+-- ----------------------------
+DROP TABLE IF EXISTS `userorder`;
+CREATE TABLE `userorder`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `imgsrc` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `bookname` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `num` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `price` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `userid` int(0) NULL DEFAULT NULL,
+  `address` varchar(64) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `name` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `phone` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `ordertime` varchar(64) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `orderstate` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT '0',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 480 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of userorder
+-- ----------------------------
+INSERT INTO `userorder` VALUES (439, 'http://localhost:8181/image/imgsrc/719277b6a16e4b7dba8ed4593e74be84.jpg', '轻狂', '1', '42.85', 137, '软件学院', 'Chen ZJ', '17350756083', '2020-12-22 1:12:45', '1');
+INSERT INTO `userorder` VALUES (445, 'http://localhost:8181/image/imgsrc/b4a094bd942e41cf99640077f45be956.jpg', '精致形象管理：时尚穿搭大全', '1', '52.3', 137, '软件学院', 'Chen ZJ', '17350756083', '2020-12-22 1:12:45', '0');
+INSERT INTO `userorder` VALUES (446, 'http://localhost:8181/image/imgsrc/c3090689f6d1447083768d254564461f.jpg', '解读中国经济', '1', '37.4', 137, '软件学院', 'Chen ZJ', '17350756083', '2020-12-22 1:12:45', '1');
+INSERT INTO `userorder` VALUES (447, 'http://localhost:8181/image/imgsrc/cee6cabaecbd45048a2028ed7cd880be.jpg', '原则 如何创造出完美独特的自己 [Principles]', '1', '60.05', 137, '软件学院', 'Chen ZJ', '17350756083', '2020-12-22 1:12:45', '0');
+INSERT INTO `userorder` VALUES (448, 'http://localhost:8181/image/imgsrc/a181956a1ad849bf96b180bca9d140d1.jpg', '感动世界的文字：英语小故事大全集 基础篇', '1', '27.6', 137, '软件学院', 'Chen ZJ', '17350756083', '2020-12-22 1:12:45', '0');
+INSERT INTO `userorder` VALUES (449, 'http://localhost:8181/image/imgsrc/6e54efb5ccc3461ab83e5dc609221539.jpg', '一看就停不下来的中国史1+2+世界史', '1', '157.9', 137, '软件学院', 'Chen ZJ', '17350756083', '2020-12-22 1:12:45', '1');
+INSERT INTO `userorder` VALUES (450, 'http://localhost:8181/image/imgsrc/44451b25029b46df8c5e605ac45a8825.jpg', '富兰克林传', '1', '41.6', 137, '软件学院', 'Chen ZJ', '17350756083', '2020-12-22 1:12:45', '0');
+INSERT INTO `userorder` VALUES (451, 'http://localhost:8181/image/imgsrc/719277b6a16e4b7dba8ed4593e74be84.jpg', '轻狂', '1', '42.85', 142, '软件学院', 'Chen ZJ', '17350756083', '2020-12-22 17:49:07', '0');
+INSERT INTO `userorder` VALUES (452, 'http://localhost:8181/image/imgsrc/46cc481d8352437baafcf78b906234c6.jpg', '东野圭吾·沉默的巡游', '1', '59.06', 142, '软件学院', 'Chen ZJ', '17350756083', '2020-12-22 17:49:07', '1');
+INSERT INTO `userorder` VALUES (453, 'http://localhost:8181/image/imgsrc/c010f1353c2549e0b1ccffde20e77939.jpg', '成法', '1', '38.02', 142, '软件学院', 'Chen ZJ', '17350756083', '2020-12-22 17:49:07', '0');
+INSERT INTO `userorder` VALUES (454, 'http://localhost:8181/image/imgsrc/719277b6a16e4b7dba8ed4593e74be84.jpg', '轻狂', '1', '42.85', 157, 'dsada', 'sadsa', '22222222222', '2020-12-31 1:38:22', '0');
+INSERT INTO `userorder` VALUES (455, 'http://localhost:8181/image/imgsrc/719277b6a16e4b7dba8ed4593e74be84.jpg', '轻狂', '1', '42.85', 157, 'dsada', 'sadsa', '22222222222', '2020-12-31 1:38:22', '1');
+INSERT INTO `userorder` VALUES (456, 'http://localhost:8181/image/imgsrc/719277b6a16e4b7dba8ed4593e74be84.jpg', '轻狂', '1', '42.85', 157, 'dsada', 'sadsa', '22222222222', '2020-12-31 1:38:22', '0');
+INSERT INTO `userorder` VALUES (471, 'http://localhost:8181/image/imgsrc/f8a9b19cd1c44b75b92557f314536f10.jpg', '马拉多纳自传：我的世界杯', '1', '39.14', 180, 'dsds', 'dssd', '21211111111', '2021-1-16 0:37:48', '0');
+INSERT INTO `userorder` VALUES (472, 'http://localhost:8181/image/imgsrc/2b4372e22c8c4a38ae60712e20397244.jpg', '教导：伍登教练是怎样带队伍的', '1', '52.12', 180, 'dsds', 'dssd', '21211111111', '2021-1-16 0:37:48', '1');
+INSERT INTO `userorder` VALUES (474, 'http://localhost:8181/image/imgsrc/719277b6a16e4b7dba8ed4593e74be84.jpg', '轻狂', '1', '42.85', 180, 'dsds', 'dssd', '21211111111', '2021-1-16 0:37:48', '1');
+INSERT INTO `userorder` VALUES (476, 'http://localhost:8181/image/imgsrc/b4a094bd942e41cf99640077f45be956.jpg', '精致形象管理：时尚穿搭大全', '1', '52.3', 180, 'dsds', 'dssd', '21211111111', '2021-1-16 0:37:48', '0');
+INSERT INTO `userorder` VALUES (477, 'http://localhost:8181/image/imgsrc/f8a9b19cd1c44b75b92557f314536f10.jpg', '马拉多纳自传：我的世界杯', '1', '39.14', 185, 'aaa', 'aaa', '12312312311', '2021-1-16 13:59:49', '0');
+INSERT INTO `userorder` VALUES (478, 'http://localhost:8181/image/imgsrc/b4a094bd942e41cf99640077f45be956.jpg', '精致形象管理：时尚穿搭大全', '1', '52.3', 185, 'aaa', 'aaa', '12312312311', '2021-1-16 13:59:49', '0');
+INSERT INTO `userorder` VALUES (479, 'http://localhost:8181/image/imgsrc/c3090689f6d1447083768d254564461f.jpg', '解读中国经济', '1', '37.4', 185, 'aaa', 'aaa', '12312312311', '2021-1-16 13:59:49', '0');
+INSERT INTO `userorder` VALUES (480, 'http://localhost:8181/image/imgsrc/719277b6a16e4b7dba8ed4593e74be84.jpg', '轻狂', '2', '42.85', 185, 'aaa', 'aaa', '12312312311', '2021-1-16 13:59:49', '0');
+
+SET FOREIGN_KEY_CHECKS = 1;
